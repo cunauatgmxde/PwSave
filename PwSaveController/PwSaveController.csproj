@@ -84,7 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArtAndImageData\PwSaveData.csproj">
+    <ProjectReference Include="..\PwSaveData\PwSaveData.csproj">
       <Project>{a5221045-d867-4fbf-bb78-487765dfdebd}</Project>
       <Name>PwSaveData</Name>
     </ProjectReference>

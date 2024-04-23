@@ -136,11 +136,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArtAndImageController\PwSaveController.csproj">
+    <ProjectReference Include="..\PwSaveController\PwSaveController.csproj">
       <Project>{2837af50-76de-43f2-b5e1-e5970d9fb4c8}</Project>
       <Name>PwSaveController</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ArtAndImageData\PwSaveData.csproj">
+    <ProjectReference Include="..\PwSaveData\PwSaveData.csproj">
       <Project>{A5221045-D867-4FBF-BB78-487765DFDEBD}</Project>
       <Name>PwSaveData</Name>
     </ProjectReference>
