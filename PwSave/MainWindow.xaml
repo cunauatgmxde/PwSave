@@ -1,0 +1,95 @@
+﻿<Window x:Class="PwSave.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PwSave"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:drawing="clr-namespace:System.Drawing;assembly=System.Drawing"
+        mc:Ignorable="d"
+        Title="PwSave" Height="800" Width="1200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" CanExecute="CommonCommandBinding_CanExecute" />
+        <CommandBinding Command="Open" CanExecute="CommonCommandBinding_CanExecute" />
+        <CommandBinding Command="Save" CanExecute="CommonCommandBinding_CanExecute" />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1069*"/>
+            <ColumnDefinition Width="108*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
+            <ToolBarTray DockPanel.Dock="Top">
+                <ToolBar>
+                    <Button x:Name="btnThumbs" Command="Open" Content="Thumbnail erstellen ... " Click="btnThumbs_Click"/>
+                    <Button x:Name="btn2" Command="Open" Content=" Button 2 " IsEnabled="False" />
+                    <Button x:Name="btnLog" Command="Open" Content="  Log  " Click="btnLog_Click" />
+                </ToolBar>
+            </ToolBarTray>
+            <TextBlock Margin="5,12,0,0" FontSize="8pt"  Text="Benutzer" TextWrapping="Wrap" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" />
+            <ComboBox x:Name="cmbBenutzer" Margin="5,10,0,0" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Button x:Name="btnLos" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,11,0,0" Content="Los" Click="btnLos_Click">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <!--<Button x:Name="btnLos" Width="25" Height="23" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,10,0,0" Content="Los" Click="btnLos_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>-->
+        </DockPanel>
+        <ListView Margin="0,200,0,40" x:Name="lvBilder" MouseDoubleClick="ListView_DoubleClick" Grid.ColumnSpan="2">
+            <!-- Die nächsten 5 Zeilen sind nötig, damit man den Inhalt einer Grid-Spalte rechtsbündig setzen kann. -->
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" Width="40" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Anbieter" Width="120" DisplayMemberBinding="{Binding Anbieter}" />
+                    <GridViewColumn Header="Benutzername" Width="120" DisplayMemberBinding="{Binding Benutzername}" />
+                    <GridViewColumn Header="Passwort" Width="100" DisplayMemberBinding="{Binding Passwort}" />
+                    <GridViewColumn Header="Kategorie" Width="100" DisplayMemberBinding="{Binding Kategorie}" />
+                    <GridViewColumn Header="Beschreibung" Width="300" DisplayMemberBinding="{Binding Beschreibung}" />
+                    <!--<GridViewColumn Header="Wurst" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Background="LightPink">
+                                    <TextBlock Text="{Binding Bildpfad}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnSpeichern" Content="Speichern" Margin="8,0,0,8" Click="btnSpeichern_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="90" IsEnabled="False" Height="25" RenderTransformOrigin="0.5,0.5">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnNeu" Content="Neu ..." Margin="120,0,0,8" Click="btnNeu_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="90" Height="25" RenderTransformOrigin="0.5,0.5">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="btnBeenden" Content="Beenden" Margin="0,0,10,8" Click="btnBeenden_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="90" Grid.Column="1" Height="25">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <!--<Button x:Name="btnBeenden" Content="Beenden" Margin="0,0,5,5" Click="btnBeenden_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="90" Grid.Column="1" Height="25"/>-->
+    </Grid>
+</Window>
