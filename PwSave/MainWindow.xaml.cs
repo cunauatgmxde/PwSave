@@ -60,18 +60,27 @@ namespace PwSave
             var item = (PwSammlungRow)lvBilder.SelectedItem;
             if(item == null)
                 return;
+
+            EintragBearbeiten(item);
+        }
+
+        private bool EintragBearbeiten(PwSammlungRow item)
+        {
+            var dlg = new EditItem(controller, item);
+            return (bool)dlg.ShowDialog();
         }
 
         private void btnNeu_Click(object sender, RoutedEventArgs e)
         {
-            //var item = new ArtRow()
-            //{
-            //    ImageList = new List<ArtPictureView>(),
-            //    Kuenstler = "",
-            //    Name = "",
-            //    Kurzbeschreibung = "",
-            //    Kurzinfo = ""
-            //};
+
+            PwSammlungRow item = controller.GetNewRowItem();
+            var liste = (List<PwSammlungRow>)lvBilder.ItemsSource;
+            if (EintragBearbeiten(item))
+            {
+                lvBilder.ItemsSource = null;
+                liste.Add(item);
+                lvBilder.ItemsSource = liste;
+            }
         }
 
         private void btnLog_Click(object sender, RoutedEventArgs e)

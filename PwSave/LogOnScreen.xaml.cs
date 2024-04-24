@@ -35,6 +35,9 @@ namespace PwSave
 
         private void btnGo_Click(object sender, RoutedEventArgs e)
         {
+#if DEBUG
+            this.DialogResult = true;
+#else
             if (string.IsNullOrWhiteSpace(tbPasswort.Password))
             {
                 MessageBox.Show("Bitte Passwort eingeben. \n", "Obacht!", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -47,6 +50,7 @@ namespace PwSave
             }
             //Console.WriteLine($"Passwort: {tbPasswort.Password.Trim()}");
             this.DialogResult = true;
+#endif
         }
 
         private void btnAbbrechen_Click(object sender, RoutedEventArgs e)

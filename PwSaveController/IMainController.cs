@@ -22,5 +22,6 @@ namespace PwSaveController
         void Log(Exception ex);
         void SavePwSammlungRow(PwSammlungRow pwSammlungRowItem);
         bool ChkPassword(string value);
+        PwSammlungRow GetNewRowItem();
     }
 }

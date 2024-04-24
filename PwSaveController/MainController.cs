@@ -55,7 +55,11 @@ namespace PwSaveController
 
         public bool ChkPassword(string value)
         {
-            return value.Equals(dataProvider.GetLogOnPassword());
+            #if DEBUG
+            return true; 
+            #else
+            value.Equals(dataProvider.GetLogOnPassword());
+            #endif
         }
 
         public List<string> GetRowsFromFile(string fileName, out string returnMsg)
@@ -101,6 +105,22 @@ namespace PwSaveController
         public void SavePwSammlungRow(PwSammlungRow pwSammlungRowItem)
         {
             throw new NotImplementedException();
+        }
+
+        public PwSammlungRow GetNewRowItem()
+        {
+            return new PwSammlungRow()
+            {
+                Id = -1,
+                Anbieter = string.Empty,
+                Benutzername = string.Empty,
+                Passwort = string.Empty,
+                Kategorie = string.Empty,
+                Beschreibung = string.Empty,
+                Added = true,
+                Changed = false,
+                Deleted = false
+            };
         }
     }
 }
