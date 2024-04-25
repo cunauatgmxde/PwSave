@@ -23,5 +23,7 @@ namespace PwSaveController
         void SavePwSammlungRow(PwSammlungRow pwSammlungRowItem);
         bool ChkPassword(string value);
         PwSammlungRow GetNewRowItem();
+        void MakeRowBackup(PwSammlungRow item);
+        void ResetRowFromBackup(PwSammlungRow item);
     }
 }

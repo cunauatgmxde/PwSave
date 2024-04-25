@@ -31,8 +31,9 @@ namespace PwSave
             if (item.Id < 1)
                 this.Title = "Neuer Eintrag";
 
-            item.Anbieter = "Test";
-            item.Benutzername = "Wurst";
+            //item.Anbieter = "Test";
+            //item.Benutzername = "Wurst";
+            saveChanges = false;
             SetButtons();
         }
 
@@ -49,6 +50,11 @@ namespace PwSave
         private void btnAbbrechen_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
+        }
+
+        private void textbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            saveChanges = true;
         }
     }
 }

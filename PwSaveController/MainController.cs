@@ -18,6 +18,15 @@ namespace PwSaveController
         private ILogger logProvider;
         private IMessageService messageProvider;
         private bool eintragEdited = false;
+        private int m_Id = 0;
+        private string m_Anbieter = string.Empty;
+        private string m_Benutzername = string.Empty;
+        private string m_Passwort = string.Empty;
+        private string m_Kategorie = string.Empty;
+        private string m_Beschreibung = string.Empty;
+        private bool m_Added;
+        private bool m_Changed;
+        private bool m_Deleted;
 
 
         public MainController(IMessageService messageService)
@@ -121,6 +130,48 @@ namespace PwSaveController
                 Changed = false,
                 Deleted = false
             };
+        }
+
+        public void MakeRowBackup(PwSammlungRow item)
+        {
+            if (item == null)
+                return;
+
+            m_Id = item.Id;
+            m_Anbieter = item.Anbieter;
+            m_Benutzername = item.Benutzername;
+            m_Passwort = item.Passwort;
+            m_Kategorie = item.Kategorie;
+            m_Beschreibung = item.Beschreibung;
+            m_Added = item.Added;
+            m_Changed = item.Changed;
+            m_Deleted = item.Deleted;
+        }
+
+        public void ResetRowFromBackup(PwSammlungRow item)
+        {
+            item.Id = m_Id;
+            item.Anbieter = m_Anbieter;
+            item.Benutzername = m_Benutzername;
+            item.Passwort = m_Passwort;
+            item.Kategorie = m_Kategorie;
+            item.Beschreibung = m_Beschreibung;
+            item.Added = m_Added;
+            item.Changed = m_Changed;
+            item.Deleted = m_Deleted;
+        }
+
+        public void ClearRowBackup()
+        {
+            m_Id = 0;
+            m_Anbieter = string.Empty;
+            m_Benutzername = string.Empty;
+            m_Passwort = string.Empty;
+            m_Kategorie = string.Empty;
+            m_Beschreibung = string.Empty;
+            m_Added = false;
+            m_Changed = false;
+            m_Deleted = false;
         }
     }
 }

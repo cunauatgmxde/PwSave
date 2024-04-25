@@ -61,7 +61,14 @@ namespace PwSave
             if(item == null)
                 return;
 
-            EintragBearbeiten(item);
+            controller.MakeRowBackup(item);
+            if (!EintragBearbeiten(item))
+            {
+                controller.ResetRowFromBackup(item);
+                return;
+            }
+
+            lvBilder.Items.Refresh();
         }
 
         private bool EintragBearbeiten(PwSammlungRow item)
@@ -72,7 +79,6 @@ namespace PwSave
 
         private void btnNeu_Click(object sender, RoutedEventArgs e)
         {
-
             PwSammlungRow item = controller.GetNewRowItem();
             var liste = (List<PwSammlungRow>)lvBilder.ItemsSource;
             if (EintragBearbeiten(item))
@@ -87,6 +93,12 @@ namespace PwSave
         {
 
         }
+
+        private void btnThumbs_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        #region QR Code
 
         private void btnLos_Click(object sender, RoutedEventArgs e)
         {
@@ -118,11 +130,8 @@ namespace PwSave
             
             MessageBox.Show($"CREATE: {fileName}");
         }
-
-        private void btnThumbs_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
+        
+        #endregion
         
     }
 }
