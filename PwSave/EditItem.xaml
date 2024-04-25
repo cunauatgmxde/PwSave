@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PwSave"
         mc:Ignorable="d"
-        Title="Eintrag bearbeiten" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Eintrag bearbeiten" Height="418.349" Width="347.248" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="ID" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="20,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
-        <Label Content="Anbieter" HorizontalAlignment="Left" Margin="20,80,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbAnbieter" HorizontalAlignment="Left" Height="23" Margin="20,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
-        <Label Content="Benutzername" HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbBenutzername" HorizontalAlignment="Left" Height="23" Margin="20,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
-        <Label Content="Passwort" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbPasswort" HorizontalAlignment="Left" Height="23" Margin="20,225,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
-        <Label Content="Kategorie" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbKategorie" HorizontalAlignment="Left" Height="23" Margin="20,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
-        <Label Content="Beschreibung" HorizontalAlignment="Left" Margin="20,320,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbBeschreibung" HorizontalAlignment="Left" Height="23" Margin="20,345,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="18,20,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbId" HorizontalAlignment="Left" Height="21" Margin="20,43,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="40" IsEnabled="False"/>
+        <Label Content="Anbieter" HorizontalAlignment="Left" Margin="18,73,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbAnbieter" HorizontalAlignment="Left" Height="21" Margin="20,96,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
+        <Label Content="Benutzername" HorizontalAlignment="Left" Margin="18,126,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbBenutzername" HorizontalAlignment="Left" Height="21" Margin="20,149,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
+        <Label Content="Passwort" HorizontalAlignment="Left" Margin="18,179,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbPasswort" HorizontalAlignment="Left" Height="21" Margin="20,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
+        <Label Content="Kategorie" HorizontalAlignment="Left" Margin="18,232,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbKategorie" HorizontalAlignment="Left" Height="21" Margin="20,255,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
+        <Label Content="Beschreibung" HorizontalAlignment="Left" Margin="18,285,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbBeschreibung" HorizontalAlignment="Left" Height="21" Margin="20,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300" TextChanged="textbox_TextChanged"/>
 
         <Button x:Name="btnAbbrechen" Content="Abbrechen" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="80" Click="btnAbbrechen_Click"/>
         <Button x:Name="btnSpeichern" Content="Übernehmen" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="80" Click="btnSpeichern_Click" IsEnabled="False"/>
-        
+
     </Grid>
 </Window>

@@ -131,5 +131,10 @@ namespace PwSaveData.Service
         {
             return pwSammlungRepository.GetPwSammlungRowList();
         }
+
+        public bool SetPwSammlungRowList(List<PwSammlungRow> liste)
+        {
+            return pwSammlungRepository.SetPwSammlungRowList(liste);
+        }
     }
 }

@@ -116,6 +116,11 @@ namespace PwSaveController
             throw new NotImplementedException();
         }
 
+        public bool SavePwSammlungRowList(List<PwSammlungRow> liste)
+        {
+            return dataProvider.SetPwSammlungRowList(liste);
+        }
+
         public PwSammlungRow GetNewRowItem()
         {
             return new PwSammlungRow()

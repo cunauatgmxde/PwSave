@@ -55,5 +55,73 @@ namespace PwSaveData.Reopsitory
 
             return pwSammlungRowList;
         }
+
+        public bool SetPwSammlungRowList(List<PwSammlungRow> liste)
+        {
+            var toDelete = liste.Where(x => x.Deleted).ToList();
+            var toAdd = liste.Where(x => x.Added).ToList();
+            var toChange = liste.Where(x => x.Changed).ToList();
+            using (var connection = new SQLiteConnection(databasePath))
+            {
+                //DELETE
+                try
+                {
+                    foreach (var row in toDelete)
+                    {
+                        PwSammlung item = GetPwSammlungItem(row);
+                        connection.Delete(item);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"DELETE: {e.Message}");
+                    return false;
+                }
+                //INSERT
+                try
+                {
+                    foreach (var row in toAdd)
+                    {
+                        PwSammlung item = GetPwSammlungItem(row);
+                        connection.Insert(item);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"INSERT: {e.Message}");
+                    return false;
+                }
+                //UPDATE
+                try
+                {
+                    foreach (var row in toChange)
+                    {
+                        PwSammlung item = GetPwSammlungItem(row);
+                        connection.Update(item);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"UPDATE: {e.Message}");
+                    return false;
+                }
+            }
+            
+
+            return true;
+        }
+
+        private PwSammlung GetPwSammlungItem(PwSammlungRow row)
+        {
+            return new PwSammlung()
+            {
+                Id = row.Id,
+                Anbieter = row.Anbieter,
+                Benutzername = row.Benutzername,
+                Passwort = row.Passwort,
+                Kategorie = row.Kategorie,
+                Beschreibung = row.Beschreibung
+            };
+        }
     }
 }

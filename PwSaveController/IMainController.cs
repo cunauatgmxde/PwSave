@@ -21,9 +21,11 @@ namespace PwSaveController
         void Log(string nachricht, LogLevel level = LogLevel.DEFAULT);
         void Log(Exception ex);
         void SavePwSammlungRow(PwSammlungRow pwSammlungRowItem);
+        bool SavePwSammlungRowList(List<PwSammlungRow> liste);
         bool ChkPassword(string value);
         PwSammlungRow GetNewRowItem();
         void MakeRowBackup(PwSammlungRow item);
         void ResetRowFromBackup(PwSammlungRow item);
+        
     }
 }

@@ -18,5 +18,6 @@ namespace PwSaveData.Interface
         string GetLogOnPassword();
         DataTable ExecuteQuery(string sql, out string returnMsg);
         List<PwSammlungRow> GetPwSammlungRowList();
+        bool SetPwSammlungRowList(List<PwSammlungRow> liste);
     }
 }

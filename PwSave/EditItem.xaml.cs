@@ -23,6 +23,7 @@ namespace PwSave
     {
         private IMainController controller;
         private bool saveChanges = false;
+        private PwSammlungRow currentItem = null;
 
         public EditItem(IMainController con, PwSammlungRow item)
         {
@@ -31,8 +32,13 @@ namespace PwSave
             if (item.Id < 1)
                 this.Title = "Neuer Eintrag";
 
-            //item.Anbieter = "Test";
-            //item.Benutzername = "Wurst";
+            this.currentItem = item;
+            tbId.Text = currentItem.Id.ToString();
+            tbAnbieter.Text = currentItem.Anbieter;
+            tbBenutzername.Text = currentItem.Benutzername;
+            tbPasswort.Text = currentItem.Passwort;
+            tbKategorie.Text = currentItem.Kategorie;
+            tbBeschreibung.Text = currentItem.Beschreibung;
             saveChanges = false;
             SetButtons();
         }
@@ -44,6 +50,13 @@ namespace PwSave
 
         private void btnSpeichern_Click(object sender, RoutedEventArgs e)
         {
+            currentItem.Anbieter = tbAnbieter.Text.Trim();
+            currentItem.Benutzername = tbBenutzername.Text.Trim();
+            currentItem.Passwort = tbPasswort.Text.Trim();
+            currentItem.Kategorie = tbKategorie.Text.Trim();
+            currentItem.Beschreibung = tbBeschreibung.Text.Trim();
+            if(currentItem.Id > 0)
+                currentItem.Changed = true;
             this.DialogResult = true;
         }
 

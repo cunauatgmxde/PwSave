@@ -18,6 +18,8 @@ namespace PwSave
     public partial class MainWindow : Window
     {
         private IMainController controller;
+        private bool saveChanges = false;
+
         public MainWindow()
         {
             ServiceLocator.Register<IMessageService>(new MessageService());
@@ -43,11 +45,20 @@ namespace PwSave
         {
             //var srv = controller.GetMessageService();
             //srv.ShowError("YES");
+            SetButtons();
+        }
+
+        private void SetButtons()
+        {
+            btnSpeichern.IsEnabled = saveChanges;
         }
 
         private void btnSpeichern_Click(object sender, RoutedEventArgs e)
         {
-
+            var liste = (List<PwSammlungRow>)lvBilder.ItemsSource;
+            if(controller.SavePwSammlungRowList(liste))
+                saveChanges = false;
+            SetButtons();
         }
 
         private void btnBeenden_Click(object sender, RoutedEventArgs e)
@@ -74,7 +85,13 @@ namespace PwSave
         private bool EintragBearbeiten(PwSammlungRow item)
         {
             var dlg = new EditItem(controller, item);
-            return (bool)dlg.ShowDialog();
+            bool dlgRet = (bool)dlg.ShowDialog();
+            if (dlgRet)
+            {
+                saveChanges = true;
+                SetButtons();
+            }
+            return dlgRet;
         }
 
         private void btnNeu_Click(object sender, RoutedEventArgs e)
