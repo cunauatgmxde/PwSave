@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Windows.Media.Imaging;
-using PwSaveData.Entity;
 using PwSaveData.Interface;
 using gnCommon;
 using SQLite;
@@ -15,6 +10,7 @@ namespace PwSaveData.Reopsitory
     public class PwStartRepository : IPwStartRepository
     {
         private string databasePath;
+        private List<PwStart> pwstartList = new();
 
         public PwStartRepository(string path)
         {

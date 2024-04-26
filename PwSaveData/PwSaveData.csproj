@@ -86,8 +86,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\PwSammlungEntity.cs" />
-    <Compile Include="Entity\PwStartEntity.cs" />
     <Compile Include="Interface\IDataService.cs" />
     <Compile Include="Interface\IPwSammlungRepository.cs" />
     <Compile Include="Interface\IPwStartRepository.cs" />
@@ -117,5 +115,6 @@
       <Name>WorleeCommon</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

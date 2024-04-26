@@ -1,17 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using gnLogger;
 using PwSaveData.Interface;
 using PwSaveData.Reopsitory;
 using gnCommon;
 using System;
-using System.Drawing;
 using System.Linq;
 using SQLite;
 using System.Data;
-using System.Windows.Media.Imaging;
-using PwSaveData.Entity;
+
 
 namespace PwSaveData.Service
 {
@@ -40,9 +37,6 @@ namespace PwSaveData.Service
 
             pwsRepository = new PwStartRepository(databasePath);
             pwSammlungRepository = new PwSammlungRepository(databasePath);
-            //artRowList = artRepository.BasisdatenLaden();
-            var swp = new PwStartEntity(this);
-
         }
 
 
