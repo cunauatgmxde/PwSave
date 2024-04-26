@@ -33,6 +33,7 @@ namespace PwSave
                 Close();
             }
 
+            KategorienLaden();
             lvBilder.ItemsSource = controller.GetPwSammlungRowList();
         }
 
@@ -46,6 +47,16 @@ namespace PwSave
             //var srv = controller.GetMessageService();
             //srv.ShowError("YES");
             SetButtons();
+        }
+
+        private void KategorienLaden()
+        {
+            var dict = new List<string>(){"", "Clemens (privat)", "Clemens (Arbeit)", "Charly"};
+            cmbBenutzer.ItemsSource = dict;
+            if (dict.Count > 0)
+            {
+                cmbBenutzer.SelectedIndex = 0;
+            }
         }
 
         private void SetButtons()
@@ -111,13 +122,13 @@ namespace PwSave
 
         }
 
-        private void btnThumbs_Click(object sender, RoutedEventArgs e)
+        private void btnLos_Click(object sender, RoutedEventArgs e)
         {
         }
 
         #region QR Code
 
-        private void btnLos_Click(object sender, RoutedEventArgs e)
+        private void btnThumbs_Click(object sender, RoutedEventArgs e)
         {
             // Link für WiFi
             //  https://github.com/codebude/QRCoder/wiki/Advanced-usage---Payload-generators#321-wifi

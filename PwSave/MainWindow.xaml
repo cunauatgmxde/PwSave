@@ -21,18 +21,18 @@
         <DockPanel Grid.ColumnSpan="2">
             <ToolBarTray DockPanel.Dock="Top">
                 <ToolBar>
-                    <Button x:Name="btnThumbs" Command="Open" Content="Thumbnail erstellen ... " Click="btnThumbs_Click"/>
+                    <Button x:Name="btnQRCode" Command="Open" Content=" QR Code " Click="btnThumbs_Click"/>
                     <Button x:Name="btn2" Command="Open" Content=" Button 2 " IsEnabled="False" />
                     <Button x:Name="btnLog" Command="Open" Content="  Log  " Click="btnLog_Click" />
                 </ToolBar>
             </ToolBarTray>
-            <TextBlock Margin="5,12,0,0" FontSize="8pt"  Text="Benutzer" TextWrapping="Wrap" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" />
-            <ComboBox x:Name="cmbBenutzer" Margin="5,10,0,0" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="False" >
+            <TextBlock Margin="5,19,0,0" FontSize="8pt"  Text="Kategorie" TextWrapping="Wrap" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" />
+            <ComboBox x:Name="cmbBenutzer" Margin="5,15,0,0" Width="200" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" IsEnabled="True" >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <Button x:Name="btnLos" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,11,0,0" Content="Los" Click="btnLos_Click">
+            <Button x:Name="btnLos" Width="25" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,16,0,0" Content="Los" Click="btnLos_Click">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
@@ -48,7 +48,7 @@
                 </Button.Effect>
             </Button>-->
         </DockPanel>
-        <ListView Margin="0,200,0,40" x:Name="lvBilder" MouseDoubleClick="ListView_DoubleClick" Grid.ColumnSpan="2">
+        <ListView Margin="0,100,0,40" x:Name="lvBilder" MouseDoubleClick="ListView_DoubleClick" Grid.ColumnSpan="2">
             <!-- Die nächsten 5 Zeilen sind nötig, damit man den Inhalt einer Grid-Spalte rechtsbündig setzen kann. -->
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
