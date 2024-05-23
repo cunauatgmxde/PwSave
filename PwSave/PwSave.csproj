@@ -35,8 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>power_ranger.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="QRCoder, Version=1.4.3.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
@@ -194,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="circle-yellow-sm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="power_ranger.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
